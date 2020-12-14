@@ -4,17 +4,21 @@ public class Calculator {
     
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        System.out.println("Enter day: ");
-        int day = Integer.parseInt(scan.nextLine());
-        System.out.println("Enter month: ");
-        int month = Integer.parseInt(scan.nextLine());
-        System.out.println("Enter year: ");
-        int year = Integer.parseInt(scan.nextLine());
+        boolean again = true;
+        while (again) {
+	        System.out.println("Enter day: ");
+	        int day = Integer.parseInt(scan.nextLine());
+	        System.out.println("Enter month: ");
+	        int month = Integer.parseInt(scan.nextLine());
+	        System.out.println("Enter year: ");
+	        int year = Integer.parseInt(scan.nextLine());
+	        String output = day + "-" + month + "-" + year + " is a ";
+	        output += dayOfWeek(day, month, year) + ".";
+	        System.out.println(output);
+	        System.out.println("Go again? Yes or No: ");
+	        if (!scan.nextLine().equalsIgnoreCase("No")) again = false;
+        }
         scan.close();
-        String output = day + "-" + month + "-" + year + " is a ";
-        output += dayOfWeek(day, month, year) + ".";
-        System.out.println(output);
-        
     }
     
     public static String dayOfWeek(int day, int month, int year) {
@@ -72,8 +76,17 @@ public class Calculator {
         }
     }
     
+    /*
+Year code (Y):
+Take last two digits of the year, divide by 4, take the floor, so remove remainder.
+Add that to the last two digits of the year, then add according to the century:*/
     protected static int calcYearCode(int year) {
-        switch ((year/100) % 4) {
+    	int lastTwo = year % 100;
+    	return lastTwo + (int) lastTwo/4 + calcCenturyCode(year);
+    }
+    
+    protected static int calcCenturyCode(int year) {
+        switch ((int)(year/100) % 4) {
             case 3:
                 return 0;
             case 2: 

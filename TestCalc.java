@@ -1,30 +1,27 @@
 import static org.junit.jupiter.api.Assertions.*;
-//import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
 class TestCalc {
-	
-//	private Calculator calc;
-//	
-//    @Before // setup()
-//    public void before() throws Exception {
-//        System.out.println("Setting it up!");
-//        calc = new Calculator();
-//    }
 
 	@Test
 	void testDayOfWeek() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(Calculator.dayOfWeek(16, 10, 2020), "Friday");
+		assertEquals(Calculator.dayOfWeek(5, 8, 2007), "Sunday");
+		assertEquals(Calculator.dayOfWeek(12, 5, 1784), "Wednesday");
 	}
 
 	@Test
 	void testCalcDayCode() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(Calculator.calcDayCode(19), 19);
+		assertNotEquals(Calculator.calcDayCode(19), 20);
 	}
 
 	@Test
 	void testCalcMonthCode() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(Calculator.calcMonthCode(12, 2020), 6);
+		assertEquals(Calculator.calcMonthCode(1, 2020), 0);
+		assertEquals(Calculator.calcMonthCode(8, 2019), 3);
+		assertEquals(Calculator.calcMonthCode(2, 2018), 4);
 	}
 
 	@Test
@@ -34,15 +31,18 @@ class TestCalc {
 		assertTrue(Calculator.isLeapYear(2000));
 		assertFalse(Calculator.isLeapYear(1900));
 	}
-
+	
 	@Test
 	void testCalcYearCode() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(Calculator.calcYearCode(1492), 117);
+		assertEquals(Calculator.calcYearCode(1945), 56);
+		assertEquals(Calculator.calcYearCode(2020), 31);
 	}
 
 	@Test
-	void testCalcDayOfWeek() {
-		fail("Not yet implemented"); // TODO
+	void testCalcCenturyCode() {
+		assertEquals(Calculator.calcCenturyCode(2020), 6);
+		assertEquals(Calculator.calcCenturyCode(2178), 4);
+		assertEquals(Calculator.calcCenturyCode(1776), 4);
 	}
-
 }
