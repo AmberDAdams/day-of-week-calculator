@@ -16,7 +16,7 @@ public class Calculator {
 	        output += dayOfWeek(day, month, year) + ".";
 	        System.out.println(output);
 	        System.out.println("Go again? Yes or No: ");
-	        if (!scan.nextLine().equalsIgnoreCase("No")) again = false;
+	        if (scan.nextLine().equalsIgnoreCase("No")) again = false;
         }
         scan.close();
     }
