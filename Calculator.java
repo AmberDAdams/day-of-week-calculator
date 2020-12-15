@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Calculator {
     
@@ -6,12 +7,26 @@ public class Calculator {
         Scanner scan = new Scanner(System.in);
         boolean again = true;
         while (again) {
-	        System.out.println("Enter day: ");
-	        int day = Integer.parseInt(scan.nextLine());
-	        System.out.println("Enter month: ");
-	        int month = Integer.parseInt(scan.nextLine());
-	        System.out.println("Enter year: ");
-	        int year = Integer.parseInt(scan.nextLine());
+	        System.out.println("Enter date (DD-MM-YYYY), or EXIT: ");
+	        String date = scan.nextLine().trim();
+	        
+	        if (date.toLowerCase().equals("exit")) {
+	        	again = false;
+	        	break;
+	        } else if (!Pattern.matches("\\d{2}-\\d{2}-\\d{4}", date)) {
+	        	System.out.println("INVALID DATE ENTRY. PLEASE TRY AGAIN");
+	        	continue;
+	        };
+	        
+	        int day = Integer.parseInt(date.split("-")[0]);
+	        int month = Integer.parseInt(date.split("-")[1]);
+	        int year = Integer.parseInt(date.split("-")[2]);
+	        
+	        if (day > 31 || month > 12) {
+	        	System.out.println("INVALID DATE ENTRY. PLEASE TRY AGAIN");
+	        	continue;
+	        };
+	        
 	        String output = day + "-" + month + "-" + year + " is a ";
 	        output += dayOfWeek(day, month, year) + ".";
 	        System.out.println(output);
