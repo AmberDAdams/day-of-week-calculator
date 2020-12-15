@@ -13,7 +13,7 @@ public class Calculator {
 	        if (date.toLowerCase().equals("exit")) {
 	        	again = false;
 	        	break;
-	        } else if (!Pattern.matches("\\d{2}-\\d{2}-\\d{4}", date)) {
+	        } else if (!isProperFormat(date)) {
 	        	System.out.println("INVALID DATE ENTRY. PLEASE TRY AGAIN");
 	        	continue;
 	        };
@@ -43,7 +43,11 @@ public class Calculator {
         return calcDayOfWeek(dayCode, monthCode, yearCode);
     }
     
-    protected static int calcDayCode(int day){
+    protected static boolean isProperFormat(String date) {
+    	return Pattern.matches("\\d{2}-\\d{2}-\\d{4}", date);
+    }
+    
+    protected static int calcDayCode(int day) {
         return day;
     }
     

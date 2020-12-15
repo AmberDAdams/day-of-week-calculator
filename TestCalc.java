@@ -9,6 +9,13 @@ class TestCalc {
 		assertEquals(Calculator.dayOfWeek(5, 8, 2007), "Sunday");
 		assertEquals(Calculator.dayOfWeek(12, 5, 1784), "Wednesday");
 	}
+	
+	@Test
+	void testIsProperFormat() {
+		assertFalse(Calculator.isProperFormat("December 12th, 2012"));
+		assertFalse(Calculator.isProperFormat("12-12-12"));
+		assertTrue(Calculator.isProperFormat("12-12-2012"));
+	}
 
 	@Test
 	void testCalcDayCode() {
