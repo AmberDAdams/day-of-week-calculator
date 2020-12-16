@@ -18,12 +18,6 @@ class TestCalc {
 	}
 
 	@Test
-	void testCalcDayCode() {
-		assertEquals(Calculator.calcDayCode(19), 19);
-		assertNotEquals(Calculator.calcDayCode(19), 20);
-	}
-
-	@Test
 	void testCalcMonthCode() {
 		assertEquals(Calculator.calcMonthCode(12, 2020), 6);
 		assertEquals(Calculator.calcMonthCode(1, 2020), 0);
