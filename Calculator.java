@@ -14,7 +14,7 @@ public class Calculator {
 	        	again = false;
 	        	break;
 	        } else if (!isProperFormat(date)) {
-	        	System.out.println("INVALID DATE ENTRY. PLEASE TRY AGAIN");
+	        	System.out.println("NOT DATE FORMAT. PLEASE TRY AGAIN");
 	        	continue;
 	        };
 	        
@@ -23,7 +23,7 @@ public class Calculator {
 	        int year = Integer.parseInt(date.split("-")[2]);
 	        
 	        if (day > 31 || month > 12) {
-	        	System.out.println("INVALID DATE ENTRY. PLEASE TRY AGAIN");
+	        	System.out.println("INVALID DATE. PLEASE TRY AGAIN");
 	        	continue;
 	        };
 	        
@@ -72,12 +72,12 @@ public class Calculator {
     	int lastTwo = year % 100;
     	return lastTwo + (int) lastTwo/4 + calcCenturyCode(year);
     }
-    
+  
     protected static int calcCenturyCode(int year) {
     	int[] centuryCodes = {6, 4, 2, 0};
         return centuryCodes[(int)(year/100)%4];
     }
-    
+
     protected static String calcDayOfWeek(int dayCode, int monthCode,
     									  int yearCode) {
     	String[] daysOfWeek = {"Saturday", "Sunday", "Monday", "Tuesday",
