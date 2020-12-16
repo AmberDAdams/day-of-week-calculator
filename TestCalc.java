@@ -9,7 +9,7 @@ class TestCalc {
 		assertEquals(Calculator.dayOfWeek(5, 8, 2007), "Sunday");
 		assertEquals(Calculator.dayOfWeek(12, 5, 1784), "Wednesday");
 	}
-	
+
 	@Test
 	void testIsProperFormat() {
 		assertFalse(Calculator.isProperFormat("December 12th, 2012"));
@@ -32,7 +32,7 @@ class TestCalc {
 		assertTrue(Calculator.isLeapYear(2000));
 		assertFalse(Calculator.isLeapYear(1900));
 	}
-	
+
 	@Test
 	void testCalcYearCode() {
 		assertEquals(Calculator.calcYearCode(1492), 117);
